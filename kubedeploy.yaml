@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: healthcare-app-container
-        image: chandan3461/HealthcareApp-img:latest
+        image: chandan3461/healthcareapp-img:latest
         ports:
         - containerPort: 8080
 ---
