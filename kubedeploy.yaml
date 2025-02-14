@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: healthcare_app
+  name: healthcare-app-deploy
   labels:
-    app: healthcare-app-deploy-lbl
+    app: healthcare-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: healthcare_app
+      app: healthcare-app
   template:
     metadata:
       labels:
-        app: healthcare_app
+        app: healthcare-app
     spec:
       containers:
       - name: healthcare-app-container
@@ -23,13 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: healthcare-app-np-service
-  labels:
-    app: healthcare-app-np-app
+  name: healthcare-app-service
 spec:
   selector:
-    app: healthcare-app-deploy-lbl
-
+    app: healthcare-app
   type: NodePort
   ports:
   - nodePort: 31028
